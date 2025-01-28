@@ -1,15 +1,22 @@
 package project;
 
+import java.util.Arrays;
+
 public class MissingNumber {
-   public static void main(String[] args) {
-	   int arr[] = {1,5,6,2,4};
-	   int n = arr.length + 1;
-	   
-	   int missingNumber = findNumber([]arr,int n);
-	   System.out.println("The missing Number is " +missingNumber);
-   }
-   
- public static int findNumber(int []arr, int n) {
-	
- }
+    public static int findMissingNumber(int[] nums, int n) {
+
+        int totalSum = n * (n + 1) / 2;
+        
+        int arraySum = Arrays.stream(nums).sum();
+        
+        return totalSum - arraySum;
+    }
+
+    public static void main(String[] args) {
+        int[] nums = {1, 5, 6, 2, 4};
+        int n = 6; 
+
+        int missingNumber = findMissingNumber(nums, n);
+        System.out.println("The missing number is: " + missingNumber);
+    }
 }
